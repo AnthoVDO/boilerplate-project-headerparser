@@ -33,7 +33,7 @@ app.get("/api/whoami", (req,res)=>{
   if(ipAdress.substr(0,7)=="::ffff:"){ipAdress = ipAdress.substr(7)}
   const language = req.headers["accept-language"];
   const browser = req.headers["user-agent"];
-  res.json({"ip": ipAdress, "language" : language, "software":browser})
+  res.json({"ipaddress": ipAdress, "language" : language, "software":browser})
 })
 
 
