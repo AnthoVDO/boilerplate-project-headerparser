@@ -29,7 +29,8 @@ app.get("/api/hello", function (req, res) {
 // get the user info
 
 app.get("/api/whoami", (req,res)=>{
-  const ipAdress = req.ip;
+  let ipAdress = req.ip;
+  if(ipAdress.substr(0,7)=="::ffff:"){ipAdress = ipAdress.substr(7)}
   const language = req.headers["accept-language"];
   const browser = req.headers["user-agent"];
   res.json({"ip": ipAdress, "language" : language, "software":browser})
